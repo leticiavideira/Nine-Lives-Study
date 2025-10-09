@@ -8,23 +8,23 @@
 import SwiftUI
 
 enum dias: String, Codable, CustomStringConvertible {
-    case segunda, terca, quarta, quinta, sexta, sabado, domingo
+    case Segunda, Terça, Quarta, Quinta, Sexta, Sabado, Domingo
     
     var description: String {
         switch self {
-        case .segunda:
+        case .Segunda:
             return "Segunda-Feira"
-        case .terca:
+        case .Terça:
             return "Terça-Feira"
-        case .quarta:
+        case .Quarta:
             return "Quarta-Feira"
-        case .quinta:
+        case .Quinta:
             return "Quinta-Feira"
-        case .sexta:
+        case .Sexta:
             return "Sexta-Feira"
-        case .sabado:
+        case .Sabado:
             return "Sábado"
-        case .domingo:
+        case .Domingo:
             return "Domingo"
         }
     }
@@ -32,12 +32,12 @@ enum dias: String, Codable, CustomStringConvertible {
     var name: String { self.rawValue }
     
     static var headerCases: [dias] {
-        [.segunda,
-         .terca,
-         .quarta,
-         .quinta,
-         .sexta,
-         .sabado,
-         .domingo]
+        [.Segunda,
+         .Terça,
+         .Quarta,
+         .Quinta,
+         .Sexta,
+         .Sabado,
+         .Domingo]
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Atividade: Hashable, Codable {
+    var id = UUID()
     var nome: String
     var horario: String
     var ativ: String
@@ -25,40 +26,60 @@ struct cronogramaView: View {
                 Color.morningBlue
                     .ignoresSafeArea()
                 
-                VStack{
-                    NavigationLink(destination: addView(arrayAtividades: $arrayAtividades)){
-                        HStack{
-                            Text("+")
-                                .font(.title2)
-                        }
-                    }
-                    .padding()
-                    .frame(width: 270,height: 70)
-                    .background(.paleSilver)
-                    .cornerRadius(15)
-                    .foregroundColor(.morningBlue)
-                    
-                    
-                    
-                    ForEach(dias.headerCases, id: \.self) { i in
-                                            
-                        VStack{
-                            NavigationLink(destination: ListaAtividadesView(dia: i, arrayAtividades: $arrayAtividades)){
-                                Text(i.name)
+                ScrollView{
+                    VStack{
+                        
+                        Text ("Cronograma")
+                            .font(.title)
+                            .bold()
+                            .foregroundStyle(.paleSilver)
+                        
+                        Spacer()
+                        Spacer()
+                        
+                        NavigationLink(destination: addView(arrayAtividades: $arrayAtividades)){
+                            HStack{
+                                Text("+")
+                                    .font(.title2)
+                                    .bold()
                             }
-                            .padding()
-                            .frame(width: 270,height: 70)
-                            .background(.paleSilver)
-                            .cornerRadius(15)
-                            .foregroundColor(.morningBlue)
+                        }
+                        .padding()
+                        .frame(width: 70,height: 70)
+                        .background(.paleSilver)
+                        .cornerRadius(65)
+                        .foregroundColor(.morningBlue)
+                        
+                        
+                        Spacer()
+                        Spacer()
+                        
+                        
+                        ForEach(dias.headerCases, id: \.self) { i in
+                            
+                            VStack{
+                                NavigationLink(destination: ListaAtividadesView(dia: i, arrayAtividades: $arrayAtividades)){
+                                    Text(i.name)
+                                        .font(.title2)
+                                        .bold()
+                                }
+                                .padding()
+                                .frame(width: 270,height: 70)
+                                .background(.paleSilver)
+                                .cornerRadius(25)
+                                .foregroundColor(.morningBlue)
+                                
+                                
+                            }
                             
                         }
-                        
                     }
-                }
                     
                 }
+                .padding()
+            }
         }
+        .tint(.liverChestnut)
     }
 }
 

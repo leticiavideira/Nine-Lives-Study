@@ -10,10 +10,9 @@ import SwiftUI
 
 struct addView: View{
     
-    @State var selectDia : dias = dias.domingo
+    @State var selectDia : dias = dias.Domingo
     @State var horas: String = ""
     @State var ativ: String = ""
-    //    @State var dia : dias
     @Binding var arrayAtividades: [Atividade]
     
     var body: some View{
@@ -22,6 +21,13 @@ struct addView: View{
                 .ignoresSafeArea()
             
             VStack{
+                Text ("Adicionar Atividade")
+                    .font(.title)
+                    .bold()
+                    .foregroundStyle(.liverChestnut)
+                
+                Spacer()
+                
                 TextField("Nova Atividade", text: $ativ)
                 TextField("Horário", text: $horas)
                 
@@ -31,13 +37,20 @@ struct addView: View{
                     }
                 }
                 .pickerStyle(.menu)
+                .tint(.white)
+                .background(.cafeAuLait)
+                .cornerRadius(30)
                 
                 
                 Button("adicionar"){
                     arrayAtividades.append(Atividade(nome: selectDia.rawValue, horario: horas, ativ: ativ))
                     print(arrayAtividades)
                 }
+                .tint(.liverChestnut)
+                
+                Spacer()
             }
+            .padding(50)
         }
     }
 }
