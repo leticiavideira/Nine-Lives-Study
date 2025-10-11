@@ -1,1 +1,1 @@
-Aplicativo de estudos
+Aplicativo de estudos em SwiftUI
