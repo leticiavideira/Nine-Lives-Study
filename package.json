@@ -1,0 +1,5 @@
+{
+  "name": "nine-lives-study",
+  "private": true,
+  "workspaces": ["apps/mobile"]
+}
